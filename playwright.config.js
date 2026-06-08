@@ -23,7 +23,7 @@ const config = defineConfig({
  },
   use: {
     browserName: 'chromium',
-    headless: true,
+    headless: true,//better to run in headless mode for faster execution and to avoid popups and other UI interactions
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
     trace: 'on' ,                   //'retain-on-failure',//to capture trace only on failure
