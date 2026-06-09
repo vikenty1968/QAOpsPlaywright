@@ -13,8 +13,8 @@ class CheckOutPage{
         await this.inputCountry.pressSequentially(countryName);
     }
     async selectCountryFromDropdown(countryName,username){
-      //  await this.dropdownOptions.waitFor();
-      await this.dropdownOptions.toBeVisible();
+        await this.dropdownOptions.waitFor();
+    
         const count = await this.dropdownOptions.locator(".ta-item").count();
         for(let i=0;i<count;i++){
             if(await this.dropdownOptions.locator(".ta-item").nth(i).textContent()=== countryName){
