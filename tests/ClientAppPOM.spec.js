@@ -50,7 +50,12 @@ console.log(orderId);
 //await page.locator(".fa-handshake-o").click();
 await myOrdersPage.goToOrderHistory();
 //check if the order id is present in the order history page
-await page.locator("tbody tr>th").first().waitFor();
+const orderRow = page.locator("tbody tr").filter({
+    hasText: orderId
+  });
+
+  await expect(orderRow).toBeVisible();
+//await page.locator("tbody tr>th").first().waitFor();
 const allOrdersId =await(page.locator("tbody tr>th").allTextContents());
 console.log(allOrdersId);
 //check if the order id is present in the order history page
