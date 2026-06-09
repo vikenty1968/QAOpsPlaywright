@@ -55,6 +55,7 @@ const orderRow = page.locator("tbody tr").filter({
   });
 
   await expect(orderRow).toBeVisible();
+  //next line was replaced with above 2lines to not to be flaky in CI/CD
 //await page.locator("tbody tr>th").first().waitFor();
 const allOrdersId =await(page.locator("tbody tr>th").allTextContents());
 console.log(allOrdersId);

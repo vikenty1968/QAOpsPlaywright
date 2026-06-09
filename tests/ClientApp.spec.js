@@ -11,7 +11,12 @@ test("Client App Login", async ({ page }) => {
   await page.locator("#userPassword").fill("Iamking@000");
   await page.locator("#login").click();
   //await page.waitForLoadState('networkidle');//does not work in this case as there are some api calls which are continuously running in the background
-  await page.locator(".card-body b").first().waitFor();
+  //await page.locator(".card-body b").first().waitFor();
+  const orderRow = page.locator("tbody tr").filter({
+    hasText: orderId
+  });
+
+  await expect(orderRow).toBeVisible();
   const title = await page.locator(".card-body b").allTextContents();
   //console.log(title);
   let count = await page.locator(".card-body").count();
