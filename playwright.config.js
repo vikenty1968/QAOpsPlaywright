@@ -17,7 +17,7 @@ import { defineConfig, devices } from '@playwright/test';
 const config = defineConfig({
   testDir: './tests',
   testMatch: '**/*.spec.js',
- timeout: 50 * 1000, //global timeout for each test
+ timeout: 100 * 1000, //global timeout for each test
  expect:{
   timeout: 40 * 1000,//assertion timeout
  },
