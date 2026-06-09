@@ -18,9 +18,8 @@ await expect(pageTitle).toBe('Google');//toHaveTitle('Google');
 await console.log(pageTitle);
 
 });
-test('First Negative Login Playwright Test',async({browser})=>{
-const context = await browser.newContext()
-const page =await context.newPage();
+test('First Negative Login Playwright Test',async({page})=>{
+
 await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
 await page.locator("#username").fill('rahulshetty')
 await page.locator("#password").fill('learning')
