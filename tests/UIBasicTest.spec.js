@@ -18,9 +18,8 @@ await expect(pageTitle).toBe('Google');//toHaveTitle('Google');
 await console.log(pageTitle);
 
 });
-test('First Negative Login Playwright Test',async({browser})=>{
-const context = await browser.newContext()
-const page =await context.newPage();
+test('First Negative Login Playwright Test',async({page})=>{
+
 await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
 await page.locator("#username").fill('rahulshetty')
 await page.locator("#password").fill('learning')
@@ -61,7 +60,9 @@ const radioBtn=page.locator(".form-check-inline label:nth-child(2)>.checkmark");
 await radioBtn.click();
 //playWright aproach to find locator
 //await page.locator(".radiotextsty").nth(1).click();
+await expect(page.locator(".modal-body")).toBeVisible();
 await page.locator("#okayBtn").click();
+await expect(page.locator(".modal-body")).toBeHidden();
 //checkbox control
 const checkbox=page.locator("[type = 'checkbox']");
 await checkbox.check();
@@ -73,8 +74,9 @@ await expect(checkbox).not.toBeChecked();
 expect(await checkbox.isChecked()).toBeFalsy();
 // assert that link is blinkng
 await expect(DocumentLink).toHaveAttribute('class','blinkingText');
-page.pause();
+
 });
+
 test('Child window Playwright Test',async({browser})=>{
     const context = await browser.newContext();
     const page = await context.newPage();
