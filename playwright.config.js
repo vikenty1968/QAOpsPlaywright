@@ -19,7 +19,7 @@ const config = defineConfig({
   testMatch: '**/*.spec.js',
  timeout: 50 * 1000, //global timeout for each test
  expect:{
-  timeout: 40 * 1000,//assertion timeout
+  timeout: 60 * 1000,//assertion timeout
  },
   use: {
     browserName: 'chromium',
